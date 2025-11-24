@@ -55,7 +55,7 @@ public class AccountControl implements ActionListener {
         popupMenu = new JPopupMenu();
 
         updateItem = new JMenuItem("Update");
-        deleteItem = new JMenuItem("Delete");
+        deleteItem = new JMenuItem("Deletee");
         viewItem = new JMenuItem("View");
         addItem = new JMenuItem("Add");
 
