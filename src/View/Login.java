@@ -40,7 +40,7 @@ public class Login extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (txtPassword.getEchoChar() == 0) {
-                    txtPassword.setEchoChar('*');
+                   txtPassword.setEchoChar('\u2022');   
                     showpass.setIcon(icShow);
                 } else {
                     txtPassword.setEchoChar((char) 0);
@@ -104,6 +104,9 @@ public class Login extends JFrame {
         this.add(pnSouth, BorderLayout.SOUTH);
          ActionListener ac = new LoginControl(this);
         btnLogin.addActionListener(ac);
+        this.getRootPane().setDefaultButton(btnLogin);
+        btnLogin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblRegister.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lblRegister.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

@@ -4,18 +4,23 @@
  */
 package View;
 
+import Control.AccountControl;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Canh
  */
 public class HomeMenu extends javax.swing.JFrame {
-   
+    private DefaultTableModel tableModel;
     public HomeMenu() {
         initComponents();
         setLocationRelativeTo(null);
+        intitTableAccount();
     }
 
     /**
@@ -44,7 +49,8 @@ public class HomeMenu extends javax.swing.JFrame {
         pnlHome = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         pnlAccount = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableAccount = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
@@ -184,24 +190,19 @@ public class HomeMenu extends javax.swing.JFrame {
 
         pnlcard.add(pnlHome, "card2");
 
-        jLabel2.setText("Account");
+        pnlAccount.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout pnlAccountLayout = new javax.swing.GroupLayout(pnlAccount);
-        pnlAccount.setLayout(pnlAccountLayout);
-        pnlAccountLayout.setHorizontalGroup(
-            pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAccountLayout.createSequentialGroup()
-                .addGap(330, 330, 330)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(306, Short.MAX_VALUE))
-        );
-        pnlAccountLayout.setVerticalGroup(
-            pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAccountLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabel2)
-                .addContainerGap(300, Short.MAX_VALUE))
-        );
+        tableAccount.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tableAccount);
+
+        pnlAccount.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         pnlcard.add(pnlAccount, "card3");
 
@@ -262,6 +263,8 @@ public class HomeMenu extends javax.swing.JFrame {
     private void lblAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccountMouseClicked
          pnlHome.setVisible(false);
         pnlAccount.setVisible(true);
+        AccountControl ac = new AccountControl(HomeMenu.this);
+        ac.loadDataToTable();
     }//GEN-LAST:event_lblAccountMouseClicked
 
     /**
@@ -301,12 +304,12 @@ public class HomeMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblAccount;
@@ -318,6 +321,7 @@ public class HomeMenu extends javax.swing.JFrame {
     private javax.swing.JPanel pnlHome;
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JPanel pnlcard;
+    private javax.swing.JTable tableAccount;
     // End of variables declaration//GEN-END:variables
  //with=165,height=378
     int width =165;
@@ -352,5 +356,19 @@ public class HomeMenu extends javax.swing.JFrame {
                 }
             }
         }).start();
+    }
+
+    private void intitTableAccount() {
+        tableModel = (DefaultTableModel) tableAccount.getModel();
+    tableModel.setColumnIdentifiers(new Object[]{"UserName","Password"});
+
+    }
+
+    public DefaultTableModel getTableModel() {
+        return tableModel;
+    }
+
+    public JTable getTableAccount() {
+        return tableAccount;
     }
 }
