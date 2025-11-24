@@ -28,6 +28,7 @@ public class LoginControl implements ActionListener {
                 lg.dispose();
             }else{
                 JOptionPane.showMessageDialog(lg, "username or password isn't exists","ERR",JOptionPane.ERROR_MESSAGE);
+                System.out.println("nguyen");
             }
         }
     }
