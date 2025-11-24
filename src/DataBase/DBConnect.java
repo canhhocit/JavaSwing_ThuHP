@@ -11,8 +11,8 @@ import java.sql.SQLException;
 
 public class DBConnect {
     private static final String URL = "jdbc:mysql://localhost:3306/jvswing_ThuHP"; 
-    private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String USER = "minh";
+    private static final String PASSWORD = "123456";
     
     public static Connection getConnection() {
         Connection conn = null;

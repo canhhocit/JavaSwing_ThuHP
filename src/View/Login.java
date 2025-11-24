@@ -66,7 +66,7 @@ public class Login extends JFrame {
         lblRegister.setForeground(Color.BLUE);
         lblRegister.setFont(new Font("Arial", Font.ITALIC, 12));
         JPanel pnInput = new JPanel();
-        TitledBorder title = new TitledBorder("Input your information");
+        TitledBorder title = new TitledBorder("***********************");
         pnInput.setBorder(title);
 
         pnInput.setLayout(new GridBagLayout());
