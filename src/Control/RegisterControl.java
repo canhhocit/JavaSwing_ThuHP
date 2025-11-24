@@ -39,7 +39,7 @@ public class RegisterControl implements ActionListener {
         }
 
         if (!pass.equals(confirm)) {
-            JOptionPane.showMessageDialog(re, "Mật khẩu xác nhận không khớp!", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(re, "Mật khẩu xác nhận không khớp!!!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
