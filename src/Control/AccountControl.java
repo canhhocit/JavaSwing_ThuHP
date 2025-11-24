@@ -86,8 +86,20 @@ public class AccountControl implements ActionListener {
                 JOptionPane.showMessageDialog(home, "Please select a row");
                 return;
             }
-            String username = (String) model.getValueAt(row, 0);
-            String password = (String) model.getValueAt(row, 1);
+            String username_old = (String) model.getValueAt(row, 0);
+            String password_old = (String) model.getValueAt(row, 1);
+
+            String username = JOptionPane.showInputDialog(home, "Enter new username",username_old);
+            String password = JOptionPane.showInputDialog(home, "Enter new password",password_old);
+            if (username == null || password == null) {
+                JOptionPane.showMessageDialog(home, "username or password is null");
+                return;
+            }
+            if(username.equals(username_old) && password.equals(password_old)){
+                JOptionPane.showMessageDialog(home, "username or password is not changed");
+                return;
+            }
+
             Account acc = new Account(username, password);
 
             if (dao.updateAccount(acc) > 0) {

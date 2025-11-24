@@ -51,6 +51,7 @@ public class Register extends JFrame {
         txtConfirm = new JPasswordField(15);
 
         btnRegister = new JButton("Register");
+        this.getRootPane().setDefaultButton(btnRegister);
         btnBack = new JButton("Back");
 
         showPass = new JLabel(icShow);
