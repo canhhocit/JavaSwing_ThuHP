@@ -29,7 +29,7 @@ public class Login extends JFrame {
         this.setResizable(false);
         this.setTitle("Login");
         this.setLayout(new BorderLayout());
-       
+
         icShow = new ImageIcon(getClass().getResource("/imageicon/eyeclose.png"));
         icHiden = new ImageIcon(getClass().getResource("/imageicon/eyeopen.png"));
         showpass = new JLabel(icShow);
@@ -102,7 +102,7 @@ public class Login extends JFrame {
         JPanel pnSouth = new JPanel();
         pnSouth.add(pnbtn);
         this.add(pnSouth, BorderLayout.SOUTH);
-         ActionListener ac = new LoginControl(this);
+        ActionListener ac = new LoginControl(this);
         btnLogin.addActionListener(ac);
         lblRegister.addMouseListener(new MouseAdapter() {
             @Override
@@ -115,18 +115,16 @@ public class Login extends JFrame {
     }
 
     public String getUsername() {
-    return txtUsername.getText().trim();
-}
+        return txtUsername.getText().trim();
+    }
 
-public String getPassword() {
-    return new String(txtPassword.getPassword());
-}
+    public String getPassword() {
+        return new String(txtPassword.getPassword());
+    }
 
-public JButton getBtnLogin() {
-    return btnLogin;
-}
-
-    
+    public JButton getBtnLogin() {
+        return btnLogin;
+    }
 
     public static void main(String[] args) {
         new Login().setVisible(true);
